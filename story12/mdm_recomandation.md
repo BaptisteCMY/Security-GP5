@@ -1,6 +1,7 @@
 ## 🔹 Méthode 1 – MDM axé sur la **gestion des applications (MAM-first)**
 
 * **Principe** : l’outil se concentre sur le contrôle des applications installées (audit des APK, whitelists/blacklists, contrôle des permissions).
+* **Exemple** : Microsoft Intune
 * **Forces** :
 
   * Détection rapide des applications non conformes (ex. si une app utilise `android:usesCleartextTraffic="true"` → blocage ou alerte).
@@ -30,7 +31,7 @@
 
 ## 🎯 Choix
 
-Vu les failles (HTTP clair, cryptographie faible, stockage externe exposé, clés Firebase visibles…), la **méthode 2 (Network-first)** est la plus pertinente immédiatement.
+Vu les failles (HTTP clair, cryptographie faible, stockage externe exposé, clés Firebase visibles…), la **méthode 2 (Network-first)** est la plus pertinente immédiatement, avec par exemple Huawei MDM Security.
 Elle protège **en urgence les utilisateurs** contre les attaques réseau (MITM, exfiltration) pendant que l’équipe de développement applique les correctifs recommandés (signature v2/v3, SQL préparées, protection Firebase…).
 
 👉 En résumé :
