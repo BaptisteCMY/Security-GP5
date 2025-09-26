@@ -1,31 +1,32 @@
-# Vulnérabilités logiques ou mauvaises pratiques #
+# Vulnérabilités logiques ou mauvaises pratiques
 
-A. Manifest.xml
-1. ``` <application android:usesCleartextTraffic="true"> ```
+`Manifest.xml` :
 
-    L’application autorise explicitement les connexions HTTP non chiffrées. Cela expose les données en transit à des attaques de type Man-in-the-Middle (MITM).
+1. `<application android:usesCleartextTraffic="true">`
 
-2. ``` <uses-permission android:name="android.permission.READ_CONTACTS"/>```
+   L’application autorise explicitement les connexions HTTP non chiffrées. Cela expose les données en transit à des attaques de type Man-in-the-Middle (MITM).
 
-    READ_CONTACTS permet l’accès à tout le carnet d’adresses.
+2. ` <uses-permission android:name="android.permission.READ_CONTACTS"/>`
 
-    Ces droits sont considérés comme hauts risques : fuite de données personnelles, exploitation par une application malveillante si les fichiers sont écrits dans un espace accessible publiquement.
+   READ_CONTACTS permet l’accès à tout le carnet d’adresses.
 
-3. ```<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> ```
+   Ces droits sont considérés comme hauts risques : fuite de données personnelles, exploitation par une application malveillante si les fichiers sont écrits dans un espace accessible publiquement.
 
-    WRITE_EXTERNAL_STORAGE permet d’écrire librement sur le stockage partagé.
+3. `<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> `
 
-    Ces droits sont considérés comme hauts risques : fuite de données personnelles, exploitation par une application malveillante si les fichiers sont écrits dans un espace accessible publiquement.
+   WRITE_EXTERNAL_STORAGE permet d’écrire librement sur le stockage partagé.
 
-4. ```<receiver
-        android:name="com.learnium.RNDeviceInfo.RNDeviceReceiver"
-        android:enabled="true"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="com.android.vending.INSTALL_REFERRER"/>
-        </intent-filter>
-    </receiver>
-    ```
+   Ces droits sont considérés comme hauts risques : fuite de données personnelles, exploitation par une application malveillante si les fichiers sont écrits dans un espace accessible publiquement.
 
-    Ces BroadcastReceiver sont exposés (android:exported="true") et peuvent être invoqués par d’autres applications. S’il n’y a pas de vérification interne ou de permission restrictive, cela ouvre la porte à des attaques de type Intent Spoofing.
-B. 
+4. ````<receiver
+           android:name="com.learnium.RNDeviceInfo.RNDeviceReceiver"
+           android:enabled="true"
+           android:exported="true">
+           <intent-filter>
+               <action android:name="com.android.vending.INSTALL_REFERRER"/>
+           </intent-filter>
+       </receiver>
+       ```
+
+       Ces BroadcastReceiver sont exposés (android:exported="true") et peuvent être invoqués par d’autres applications. S’il n’y a pas de vérification interne ou de permission restrictive, cela ouvre la porte à des attaques de type Intent Spoofing.
+   ````

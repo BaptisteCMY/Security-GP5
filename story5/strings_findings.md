@@ -1,3 +1,11 @@
+# Détecter les failles de sécurité :
+
+- Ouvrir le fichier `strings.xml ` en accédant au chemin `app/res/values`
+
+- Lister les fichiers avec la commande `ls` et le fichier `strings.xml` apparaitra.
+
+- Aller sur cet url `https://jsonformatter.org/xml-parser` et importer le fichier `strings.xml` pour permettre une meilleure lecture des vulnéaribilités.
+
 ## 1 - Endpoints sensibles
 
 `https://api.nickel.eu/customer-banking-api`
