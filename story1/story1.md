@@ -1,1 +1,3 @@
-Empreinte SHA-256 du fichier : f01f08c8b6e2fe4612e81bc7e3a3ba9440dad0d7a962f4e67640390dd721d528
+Commande à taper pour récupérer l'empreinte SHA-256 : `Get-FileHash .\app.apk -Algorithm SHA256`
+
+Empreinte SHA-256 du fichier : `f01f08c8b6e2fe4612e81bc7e3a3ba9440dad0d7a962f4e67640390dd721d528`
